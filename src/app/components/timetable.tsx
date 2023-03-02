@@ -1,8 +1,10 @@
+import TbHeader from './tbHeader'
+
 const Timetable = () => {
     const days = ['Mon', 'Tue', 'Wed', 'Thr', 'Fri'];
     return (
         <div id="timetable">
-            <h2>Timetable</h2>
+            <TbHeader />
             <table>
                 <thead>
                     <tr>

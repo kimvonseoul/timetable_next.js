@@ -4,6 +4,7 @@
         padding: 0;
         background-color: rgb(228, 228, 228);
         overflow:scroll;
+        overflow-x: hidden;
     }
     #header {
         width: 100%;
@@ -20,6 +21,10 @@
         margin-right: 20px;
         color: white;
     }
+    #header a {
+        text-decoration: none;
+        color: white;
+    }
     #header h1, #header p, #header button {
         display: inline-block;
     }
@@ -27,6 +32,7 @@
         margin: 0 auto;
         margin-top: 30px;
         margin-bottom: 30px;
+        display: flex;
         width: 960px;
         height: 600px;
         background-color: white;
@@ -38,9 +44,20 @@
         background-color: gray;
         border-top-left-radius: 25px;
         border-bottom-left-radius: 25px;
+        text-align: center;
+    }
+    #timetable h2, .profile_icon {
+        display: inline-block;
     }
     #timetable table {
         margin: 0 auto;
+    }
+    #profile {
+        width: 40%;
+        height: 100%;
+        background-color: white;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
     }
     #footer {
         padding: 20px;

@@ -1,5 +1,6 @@
 const USER_CHECK = 'check';
 const Update = 'update'
+const IndexUpdate = 'indexUpdate';
 
 export const userCheck = (data:any) => ({
     type: USER_CHECK,
@@ -11,15 +12,23 @@ export const updateUsername = (data:any) => ({
     data
 })
 
+export const indextUpdate = (data:any) => ({
+    type: IndexUpdate,
+    data
+})
 const initialState = {
     id: 1,
     data: [
         {id:1, email:'kimvonseoul@gmail.com', username:''}
-    ]
+    ],
+    userIndex: undefined
 }
 
 export default function user_reducer(state=initialState, action:any) {
     switch(action.type){
+        case IndexUpdate:
+            state.userIndex = action.data;
+            return {...state}
         case USER_CHECK:
             console.log('reducer working...');
             for (var i of state.data){
