@@ -13,18 +13,16 @@ import { useRouter } from 'next/router';
 const Index = () => {
     const {data:session} = useSession();
     const dispatch = useDispatch();
-    const onDispatch = () => {
-        dispatch(testAction('redux test'));
-    }
     const userState = useSelector((state:any)=>state.user_reducer);
     console.log(userState.data[0].email);
-    let count = 0
-    /*
+    console.log(userState.userIndex);
+    let count = 0;
     for(var i of userState.data){
-        if(i.email == session?.user?.email){
+        if((i.email != session?.user?.email)&&(userState.userIndex == undefined)){
             let data = count;
             dispatch(indextUpdate(data));
             console.log(userState.userIndex);
+            break;
         } else {
             count++;
         }
@@ -41,11 +39,10 @@ const Index = () => {
                 console.log(i.username);
             }
         }
-    }*/
+    }
     return(
         <>
             <Header/>
-            <button onClick={onDispatch}>click</button>
             <Main />
             <Footer />
         </>

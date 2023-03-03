@@ -4,7 +4,7 @@ import Pfsetting from "@/app/components/pfsetting";
 import Timetable from "@/app/components/timetable";
 import '../app/main.css'
 
-const Profile = () => {
+const ProfileSetting = () => {
     return(
         <>
             <Header />
@@ -17,4 +17,4 @@ const Profile = () => {
     )
 }
 
-export default Profile;
+export default ProfileSetting;

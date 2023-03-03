@@ -19,7 +19,44 @@ export const indextUpdate = (data:any) => ({
 const initialState = {
     id: 1,
     data: [
-        {id:1, email:'kimvonseoul@gmail.com', username:''}
+        {id:1, email:'kimvonseoul@gmail.com', username:'', timetable: [
+            [
+                {id:1, class:'math', classroom: '410'},
+                {id:2, class:'', classroom: ''},
+                {id:3, class:'music', classroom: '520'},
+                {id:4, class:'', classroom: ''},
+                {id:5, class:'PE', classroom: 'Gym'}
+            ],
+            [
+                {id:1, class:'', classroom: ''},
+                {id:2, class:'English', classroom: '220'},
+                {id:3, class:'', classroom: ''},
+                {id:4, class:'', classroom: ''},
+                {id:5, class:'Math', classroom: '310'}
+            ],
+            [
+                {id:1, class:'', classroom: ''},
+                {id:2, class:'', classroom: ''},
+                {id:3, class:'Art', classroom: '350'},
+                {id:4, class:'', classroom: ''},
+                {id:5, class:'', classroom: ''}
+            ],
+            [
+                {id:1, class:'', classroom: ''},
+                {id:2, class:'', classroom: ''},
+                {id:3, class:'', classroom: ''},
+                {id:4, class:'', classroom: ''},
+                {id:5, class:'', classroom: ''}
+            ],
+            [
+                {id:1, class:'', classroom: ''},
+                {id:2, class:'', classroom: ''},
+                {id:3, class:'', classroom: ''},
+                {id:4, class:'', classroom: ''},
+                {id:5, class:'', classroom: ''}
+            ]
+        ]
+        }
     ],
     userIndex: undefined
 }
