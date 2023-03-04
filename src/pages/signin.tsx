@@ -12,7 +12,7 @@ const SignIn = () => {
     let userId:number;
     for(var i of userState.data) {
         if(i.email == session?.user?.email){
-            userId = i.id;
+            userId = i.index;
         }
     }
     const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const SignIn = () => {
             updatedId: idInput
         };
         dispatch(updateUsername(data));
-        console.log(userState.data[userId -1].username);
+        console.log(userState.data[userId].username);
     }
     return(
         <>

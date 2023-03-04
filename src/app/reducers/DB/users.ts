@@ -17,46 +17,104 @@ export const indextUpdate = (data:any) => ({
     data
 })
 const initialState = {
-    id: 1,
+    id: 3,
     data: [
-        {id:1, email:'kimvonseoul@gmail.com', username:'', timetable: [
+        {index:0, email:'kimvonseoul@gmail.com', name:'Jeonghu', username:'', timetable: [
             [
-                {id:1, class:'math', classroom: '410'},
-                {id:2, class:'', classroom: ''},
-                {id:3, class:'music', classroom: '520'},
-                {id:4, class:'', classroom: ''},
-                {id:5, class:'PE', classroom: 'Gym'}
-            ],
+                {class:'math', classroom: '410'},
+                {class:'', classroom: ''},
+                {class:'music', classroom: '520'},
+                {class:'', classroom: ''},
+                {class:'PE', classroom: 'Gym'}
+            ],[
+                {class:'', classroom: ''},
+                {class:'English', classroom: '220'},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'Math', classroom: '310'}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'Art', classroom: '350'},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}]
+        ], following: [1, 2]}, 
+        {index: 2, email:'sophia@gmail.com', name:'sophia', username:'sophia', timetable: [
             [
-                {id:1, class:'', classroom: ''},
-                {id:2, class:'English', classroom: '220'},
-                {id:3, class:'', classroom: ''},
-                {id:4, class:'', classroom: ''},
-                {id:5, class:'Math', classroom: '310'}
-            ],
+                {class:'math', classroom: '410'},
+                {class:'', classroom: ''},
+                {class:'music', classroom: '520'},
+                {class:'', classroom: ''},
+                {class:'PE', classroom: 'Gym'}
+            ],[
+                {class:'', classroom: ''},
+                {class:'English', classroom: '220'},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'Math', classroom: '310'}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'Art', classroom: '350'},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}]
+        ], following: [0, 2]},
+        {index: 3, email:'dummy1@gmail.com', name:'dummy1', username:'dummydata1', timetable: [
             [
-                {id:1, class:'', classroom: ''},
-                {id:2, class:'', classroom: ''},
-                {id:3, class:'Art', classroom: '350'},
-                {id:4, class:'', classroom: ''},
-                {id:5, class:'', classroom: ''}
-            ],
-            [
-                {id:1, class:'', classroom: ''},
-                {id:2, class:'', classroom: ''},
-                {id:3, class:'', classroom: ''},
-                {id:4, class:'', classroom: ''},
-                {id:5, class:'', classroom: ''}
-            ],
-            [
-                {id:1, class:'', classroom: ''},
-                {id:2, class:'', classroom: ''},
-                {id:3, class:'', classroom: ''},
-                {id:4, class:'', classroom: ''},
-                {id:5, class:'', classroom: ''}
-            ]
-        ]
-        }
+                {class:'math', classroom: '410'},
+                {class:'', classroom: ''},
+                {class:'music', classroom: '520'},
+                {class:'', classroom: ''},
+                {class:'PE', classroom: 'Gym'}
+            ],[
+                {class:'', classroom: ''},
+                {class:'English', classroom: '220'},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'Math', classroom: '310'}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'Art', classroom: '350'},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}]
+        ], following: [0, 1]}
     ],
     userIndex: undefined
 }
@@ -80,8 +138,8 @@ export default function user_reducer(state=initialState, action:any) {
         case Update:
             console.log('reducer working...');
             //console.log(action.data.updateId);
-            state.data[action.data.id - 1].username = action.data.updatedId;
-            console.log(state.data[action.data.id - 1].email + ', ' + state.data[action.data.id - 1].username);
+            state.data[action.data.id].username = action.data.updatedId;
+            console.log(state.data[action.data.id].email + ', ' + state.data[action.data.id].username);
             return {...state}
         default:
             return state;

@@ -4,6 +4,7 @@ const Main = () => {
     return (
         <div id="main">
             <Timetable />
+            <hr id='section-divider'/>
             <ProfileSection />
         </div>
     )

@@ -21,7 +21,7 @@ const Timetable = () => {
                 </thead>
                 <tbody>
                     {table_data.map((e:any, k:any)=><tr key={k}><td className='table-column'>{k + 1}</td>{e.map((e:any, k:any)=>{
-                            return <td key={k} className='table-box'>{e.class}</td>
+                            return <td key={k} className='table-box'><p>{e.class}</p><p>{e.classroom}</p></td>
                         })}</tr>
                     )}
                 </tbody>
