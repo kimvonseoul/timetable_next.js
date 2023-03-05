@@ -2,7 +2,7 @@ import Link from 'next/link'
 import {CgProfile} from 'react-icons/Cg'
 
 const Profile = (props:any) => {
-    const userUrl = '/profile?=' + props.username;
+    const userUrl = '/profiles/' + props.username;
     return(
         <div id='profile-component'>
             <Link href={userUrl}>

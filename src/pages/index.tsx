@@ -8,7 +8,7 @@ import { testAction } from '@/app/reducers/test';
 import {userCheck, indextUpdate} from '../app/reducers/DB/users';
 import {useSelector} from 'react-redux';
 import { useRouter } from 'next/router';
-
+import Link from 'next/link'
 
 const Index = () => {
     const {data:session} = useSession();
@@ -44,6 +44,7 @@ const Index = () => {
         <>
             <Header/>
             <Main />
+            <Link href='/profiles/14'>click</Link>
             <Footer />
         </>
     )
