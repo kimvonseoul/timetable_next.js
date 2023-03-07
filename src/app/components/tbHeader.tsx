@@ -9,7 +9,7 @@ const TbHeader = (props:any) => {
     return (
         <div id='table-header'>
             <CgProfile className='profile_icon' size={50}/>
-            <h2>@username's Timetable</h2>
+            <h2>@{props.username}'s Timetable</h2>
             <Link href='/follow' className='profile_header_btn'>follow</Link>
                 <Link href='/message' className='profile_header_btn'>message</Link>
         </div>

@@ -1,15 +1,19 @@
 import TbHeader from './tbHeader'
 import {useSelector} from 'react-redux'
 
-const Timetable = () => {
+
+const Timetable = (props:any) => {
     const userState = useSelector((state:any)=>state.user_reducer);
+    let table_data;
+    if(props.data == undefined){
+        table_data = userState.data[0].timetable;
+    } else {
+        table_data = props.data;
+    }
     const days = ['Mon', 'Tue', 'Wed', 'Thr', 'Fri'];
-    let userNumber = 0;
-    let table_data = userState.data[0].timetable;
-    //console.log(table_data);
     return (
         <div id="timetable">
-            <TbHeader />
+            <TbHeader username={props.username}/>
             <table>
                 <thead>
                     <tr>   
@@ -29,4 +33,7 @@ const Timetable = () => {
         </div>
     )
 }
+
+
 export default Timetable;
+

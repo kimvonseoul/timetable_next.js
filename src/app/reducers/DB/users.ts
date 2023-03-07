@@ -54,9 +54,9 @@ const initialState = {
         {index: 2, email:'sophia@gmail.com', name:'sophia', username:'sophia', timetable: [
             [
                 {class:'math', classroom: '410'},
-                {class:'', classroom: ''},
+                {class:'sophia', classroom: ''},
                 {class:'music', classroom: '520'},
-                {class:'', classroom: ''},
+                {class:'test', classroom: ''},
                 {class:'PE', classroom: 'Gym'}
             ],[
                 {class:'', classroom: ''},
@@ -86,9 +86,9 @@ const initialState = {
         {index: 3, email:'dummy1@gmail.com', name:'dummy1', username:'dummydata1', timetable: [
             [
                 {class:'math', classroom: '410'},
-                {class:'', classroom: ''},
+                {class:'dummy', classroom: 'data'},
                 {class:'music', classroom: '520'},
-                {class:'', classroom: ''},
+                {class:'test', classroom: '000'},
                 {class:'PE', classroom: 'Gym'}
             ],[
                 {class:'', classroom: ''},

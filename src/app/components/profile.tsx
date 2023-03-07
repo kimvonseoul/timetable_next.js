@@ -3,6 +3,7 @@ import {CgProfile} from 'react-icons/Cg'
 
 const Profile = (props:any) => {
     const userUrl = '/profiles/' + props.username;
+    const messageUrl = '/message/' + props.username;
     return(
         <div id='profile-component'>
             <Link href={userUrl}>
@@ -13,7 +14,7 @@ const Profile = (props:any) => {
                 </div>
             </Link>
             <Link href='/follow' className='profile_header_btn'>follow</Link>
-            <Link href='/message' className='profile_header_btn'>message</Link>
+            <Link href={messageUrl} className='profile_header_btn'>message</Link>
         </div>
     )
 }
