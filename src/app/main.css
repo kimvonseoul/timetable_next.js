@@ -152,6 +152,83 @@
         flex-direction: column;
         align-items: flex-start;
     }
+    #message-main {
+        width: 60%;
+        height: 100%;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+    }
+    #message-header {
+        height: 10%;
+        display: flex;
+        align-items: center;
+    }
+    #message-header h2 {
+        margin: 10px;
+    }
+    #message-home-btn {
+        margin: 10px;
+        text-decoration: none;
+        border: none;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    #message-main hr {
+        margin: 0;
+        height: 0.1px;
+        background-color: black;
+        border: none;
+    }
+    #message-section {
+        height: 75%;
+        overflow: scroll;
+    }
+    .my-text-area {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .my-text {
+        width: 20%;
+        margin: 10px;
+        padding: 10px;
+        float: right;
+        border-radius: 20px;
+        background-color: rgb(226, 226, 226);
+    }
+    .others-text-area {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .others-text {
+        width: 20%;
+        margin: 10px;
+        padding: 10px;
+        float: right;
+        border-radius: 20px;
+        background-color: white;
+        border: 1px solid rgb(211, 210, 210);
+    }
+    #message-input-section {
+        height: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #message-input-section input {
+        padding-left: 10px;
+        width: 80%;
+        height: 40%;
+        border-radius: 30px;
+        border: solid 1px black;
+    }
+    #message-input-section button {
+        margin: 10px;
+        height: 40%;
+    }
     #footer {
         padding: 20px;
         width: 100%;
