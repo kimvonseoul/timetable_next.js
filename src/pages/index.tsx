@@ -18,10 +18,10 @@ const Index = () => {
     console.log(userState.userIndex);
     let count = 0;
     for(var i of userState.data){
-        if((i.email != session?.user?.email)&&(userState.userIndex == undefined)){
+        if((i.email == session?.user?.email)&&(userState.userIndex == undefined)){
             let data = count;
             dispatch(indextUpdate(data));
-            console.log(userState.userIndex);
+            console.log(userState.userIndex + 'userIndex added');
             break;
         } else {
             count++;
@@ -37,6 +37,7 @@ const Index = () => {
             } else {
                 console.log('username exist');
                 console.log(i.username);
+                console.log(userState.userIndex + 'userIndex added');
             }
         }
     }

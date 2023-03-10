@@ -19,7 +19,7 @@ export const indextUpdate = (data:any) => ({
 const initialState = {
     id: 3,
     data: [
-        {index:0, email:'kimvonseoul@gmail.com', name:'Jeonghu', username:'', timetable: [
+        {index:0, email:'kimvonseoul@gmail.com', name:'Jeonghu', username:'kimvonseoul', timetable: [
             [
                 {class:'math', classroom: '410'},
                 {class:'', classroom: ''},
@@ -122,6 +122,7 @@ const initialState = {
 export default function user_reducer(state=initialState, action:any) {
     switch(action.type){
         case IndexUpdate:
+            console.log('index state');
             state.userIndex = action.data;
             return {...state}
         case USER_CHECK:
