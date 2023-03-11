@@ -5,9 +5,7 @@ import {useState} from 'react'
 import {addMessage} from '../reducers/DB/messages'
 
 const MessageSection = (props:any) => {
-    const messageState = useSelector((state:any)=> state.message_reducer);
-    console.log(messageState.data[0]);
-    const messageData = messageState.data[0].text;
+    let messageData = props.data.text;
     const dispatch = useDispatch();
     const [inputMessage, setInputMessage] = useState('');
     const messageOnChange = (e:any) => {
@@ -26,6 +24,12 @@ const MessageSection = (props:any) => {
         setInputMessage('');
     }
     let date:any;
+    const t = () => {
+        let m = [1, 3, 5, 4, 2];
+        m.map((e:any, k:any)=>{
+            <p>{e}</p>
+        })
+    }
     return (
         <div id='main'>
             <section id='message-main'>
@@ -46,12 +50,11 @@ const MessageSection = (props:any) => {
                             date = e.date;
                             
                             if(e.sender == 'kimvonseoul'){
-                                return (<><p className='message-date'>{e.date}</p><div className='my-text-area' key={k}><div className='my-text'>{e.text}</div> <p>{e.time}</p></div></>)
+                                return (<div key={k}><p className='message-date'>{e.date}</p><div className='my-text-area' key={k}><div className='my-text'>{e.text}</div> <p>{e.time}</p></div></div>)
                             } else {
-                                return (<><p className='message-date'>{e.date}</p><div className='others-text-area' key={k}><div className='others-text'>{e.text}</div> <p>{e.time}</p></div></>)
+                                return (<div key={k}><p className='message-date'>{e.date}</p><div className='others-text-area' key={k}><div className='others-text'>{e.text}</div> <p>{e.time}</p></div></div>)
                             }
                         }
-                        
                     })}
                 </div>
                 <div id='message-input-section'>
@@ -59,11 +62,11 @@ const MessageSection = (props:any) => {
                         <input type="text" placeholder='input a message' value={inputMessage} onChange={messageOnChange}/>
                         <button>send</button>
                     </form>
-                    
                 </div>
             </section>
             <hr id='section-divider'/>
             <ProfileSection />
+            
         </div>
     )
 }

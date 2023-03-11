@@ -50,7 +50,7 @@ const initialState = {
                 {class:'', classroom: ''},
                 {class:'', classroom: ''},
                 {class:'', classroom: ''}]
-        ], following: [1, 2]}, 
+        ], following: [1, 2, 3]}, 
         {index: 2, email:'sophia@gmail.com', name:'sophia', username:'sophia', timetable: [
             [
                 {class:'math', classroom: '410'},
@@ -114,7 +114,39 @@ const initialState = {
                 {class:'', classroom: ''},
                 {class:'', classroom: ''},
                 {class:'', classroom: ''}]
-        ], following: [0, 1]}
+        ], following: [0, 1]},
+        {index: 3, email:'dummy2@gmail.com', name:'dummy2', username:'dummydata2', timetable: [
+            [
+                {class:'math', classroom: '410'},
+                {class:'dummy', classroom: 'data2'},
+                {class:'music', classroom: '520'},
+                {class:'test', classroom: '000'},
+                {class:'PE', classroom: 'Gym'}
+            ],[
+                {class:'', classroom: ''},
+                {class:'English', classroom: '220'},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'Math', classroom: '310'}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'Art', classroom: '350'},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}]
+        ], following: [0, 1, 2]},
     ],
     userIndex: undefined
 }

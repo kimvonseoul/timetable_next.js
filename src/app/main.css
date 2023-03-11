@@ -181,7 +181,11 @@
     }
     #message-section {
         height: 75%;
+        width: 100%;
         overflow: scroll;
+        display: inline-flex;
+        flex-direction: column-reverse;
+
     }
     .message-date {
         text-align: center;
