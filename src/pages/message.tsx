@@ -16,26 +16,31 @@ const Message = () => {
     const {query} = router;
     let messageData;
     let isCheck = false;
+    let messageNumber = 0;
     messageState.data.map((e:any)=>{
         if(((e.user1 == userState.data[userState.userIndex].username)&&(e.user2 == query.to))||((e.user1 == query.to)&&(e.user2 == userState.data[userState.userIndex].username))) {
-            messageData = e;
+            messageData = {...e, messageNumber};
             console.log(messageData);
             isCheck = true;
+        } else { 
+            messageNumber++;
         }
     });
     if(isCheck == false) {
-        messageData;
         let data = {
+            messageNumber: 0,
             user1: userState.data[userState.userIndex].username,
-            user2: query.to
+            user2: query.to,
+            text: []
         }
+        messageData = data;
+        console.log(messageData);
         dispatch(addDB(data));
     }
     return(
         <div>
             <Header />
             <MessageSection name={query.to} data={messageData}/>
-            <p>query: {query.to}</p>
             <Footer />
         </div>
     )

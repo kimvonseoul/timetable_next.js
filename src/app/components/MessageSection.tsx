@@ -5,7 +5,7 @@ import {useState} from 'react'
 import {addMessage} from '../reducers/DB/messages'
 
 const MessageSection = (props:any) => {
-    let messageData = props.data.text;
+    let messageData = props.data?.text;
     const dispatch = useDispatch();
     const [inputMessage, setInputMessage] = useState('');
     const messageOnChange = (e:any) => {
@@ -16,14 +16,15 @@ const MessageSection = (props:any) => {
     const sendMessage = (e:any) => {
         e.preventDefault();
         let data = {
-            messageNumber : 0,
+            messageNumber : props.data.messageNumber,
             text: inputMessage,
             sender: 'kimvonseoul'
         }
         dispatch(addMessage(data));
         setInputMessage('');
     }
-    let date:any;
+    let date = messageData[0].date;
+    console.log(date + 'date check')
     const t = () => {
         let m = [1, 3, 5, 4, 2];
         m.map((e:any, k:any)=>{
@@ -39,7 +40,7 @@ const MessageSection = (props:any) => {
                 </div>
                 <hr/>
                 <div id='message-section'>
-                    {messageData.map((e:any, k:any)=>{
+                    {messageData?.length != 0 && (messageData.map((e:any, k:any)=>{
                         if(date == e.date){
                             if(e.sender == 'kimvonseoul'){
                                 return (<div className='my-text-area' key={k}><div className='my-text'>{e.text}</div> <p>{e.time}</p></div>)
@@ -48,14 +49,13 @@ const MessageSection = (props:any) => {
                             }
                         } else {
                             date = e.date;
-                            
                             if(e.sender == 'kimvonseoul'){
-                                return (<div key={k}><p className='message-date'>{e.date}</p><div className='my-text-area' key={k}><div className='my-text'>{e.text}</div> <p>{e.time}</p></div></div>)
+                                return (<div key={k}><div className='my-text-area' key={k}><div className='my-text'>{e.text}</div> <p>{e.time}</p></div><p className='message-date'>{date}</p></div>)
                             } else {
-                                return (<div key={k}><p className='message-date'>{e.date}</p><div className='others-text-area' key={k}><div className='others-text'>{e.text}</div> <p>{e.time}</p></div></div>)
+                                return (<div key={k}><div className='others-text-area' key={k}><div className='others-text'>{e.text}</div> <p>{e.time}</p></div><p className='message-date'>{date}</p></div>)
                             }
                         }
-                    })}
+                    }))}
                 </div>
                 <div id='message-input-section'>
                     <form onSubmit={sendMessage}>
@@ -66,7 +66,6 @@ const MessageSection = (props:any) => {
             </section>
             <hr id='section-divider'/>
             <ProfileSection />
-            
         </div>
     )
 }

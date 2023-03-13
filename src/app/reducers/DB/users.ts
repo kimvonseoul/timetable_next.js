@@ -1,6 +1,8 @@
 const USER_CHECK = 'check';
 const Update = 'update'
 const IndexUpdate = 'indexUpdate';
+const Follow = 'follow'
+const Unfollow = 'unfollow'
 
 export const userCheck = (data:any) => ({
     type: USER_CHECK,
@@ -16,8 +18,18 @@ export const indextUpdate = (data:any) => ({
     type: IndexUpdate,
     data
 })
+
+export const follow = (data:any) => ({
+    type: Follow,
+    data
+})
+
+export const unfollow = (data:any) => ({
+    type: Unfollow,
+    data
+})
 const initialState = {
-    id: 3,
+    id: 4,
     data: [
         {index:0, email:'kimvonseoul@gmail.com', name:'Jeonghu', username:'kimvonseoul', timetable: [
             [
@@ -147,11 +159,44 @@ const initialState = {
                 {class:'', classroom: ''},
                 {class:'', classroom: ''}]
         ], following: [0, 1, 2]},
+        {index: 4, email:'dummy3@gmail.com', name:'dummy3', username:'dummydata3', timetable: [
+            [
+                {class:'math', classroom: '410'},
+                {class:'dummy', classroom: 'data2'},
+                {class:'music', classroom: '520'},
+                {class:'test', classroom: '000'},
+                {class:'PE', classroom: 'Gym'}
+            ],[
+                {class:'', classroom: ''},
+                {class:'English', classroom: '220'},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'Math', classroom: '310'}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'Art', classroom: '350'},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}
+            ],[
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''},
+                {class:'', classroom: ''}]
+        ], following: [0, 1, 2]},
     ],
     userIndex: undefined
 }
 
 export default function user_reducer(state=initialState, action:any) {
+    let userIndex;
     switch(action.type){
         case IndexUpdate:
             console.log('index state');
@@ -173,6 +218,19 @@ export default function user_reducer(state=initialState, action:any) {
             //console.log(action.data.updateId);
             state.data[action.data.id].username = action.data.updatedId;
             console.log(state.data[action.data.id].email + ', ' + state.data[action.data.id].username);
+            return {...state}
+        case Follow:
+            let newFollow;
+            for(var i of state.data){
+                if(i.username == action.data.username){
+                    userIndex = i.index;
+                    newFollow = state.data[action.data.into].following.concat(userIndex);
+                }
+            }
+            return {...state, data: [...state.data[action.data.into].following, userIndex]}
+        case Unfollow:
+            for(var i of state.data)
+            console.log('unfollow reducer');
             return {...state}
         default:
             return state;

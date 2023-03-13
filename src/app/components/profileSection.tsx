@@ -1,12 +1,22 @@
 import Profile from "./profile"
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
+import {follow, unfollow} from '@/app/reducers/DB/users'
 
-const ProfileSection = () => {
+const ProfileSection = (props:any) => {
+    const dispatch = useDispatch();
     const userState = useSelector((state:any) => state.user_reducer);
     const userIndex = userState.userIndex;
     console.log(userIndex + 'tb');
-    const following_data = userState.data[0].following;
+    const following_data = userState?.data[userIndex]?.following;
     console.log(following_data);
+    const followOnclick = (e:any) => {
+        const data = {
+            into : userIndex,
+            username: e
+        }
+        console.log('follow test ' + e);
+        dispatch(follow(data));
+    }
     return(
         <div id='profile_section'>
             <section id='search-section'>
@@ -15,13 +25,27 @@ const ProfileSection = () => {
             </section>
             <section className='in-profile-section'>
                 <h3>Following</h3>
-                {following_data.map((e:any, k:any)=>{
-                    return <Profile  key={k} name={userState.data[e].name} username={userState.data[e].username} />
-                })}
+                {(following_data == undefined)&&(
+                    <p>Log in to see your following</p>
+                )}
+                {(following_data != undefined)&&(following_data.map((e:any, k:any)=>{
+                    let isFollowing = false;
+                    userState.data[e].following.map((e:any, k:any)=>{
+                        if(e == userIndex){
+                            isFollowing = true;
+                        }
+                    })
+                    console.log(isFollowing);
+                    return <Profile  key={k} 
+                    name={userState.data[e].name} 
+                    username={userState.data[e].username} 
+                    isFollowing={isFollowing}
+                    followOnclick = {followOnclick} />
+                }))}
             </section>
             <section className='in-profile-section'>
                 <h3>recommend</h3>
-                <Profile name='kim' username='kimvonseoul'/>
+                <Profile name='dummy3' username='dummydata3' followOnclick = {followOnclick}/>
             </section>
         </div>
     )

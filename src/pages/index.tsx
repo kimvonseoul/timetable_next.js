@@ -41,10 +41,11 @@ const Index = () => {
             }
         }
     }
+    let data;
     return(
         <>
             <Header/>
-            <Main />
+            <Main data={data}/>
             <Link href='/profiles/14'>click</Link>
             <Footer />
         </>
